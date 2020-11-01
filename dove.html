@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-script-type" content="text/javascript">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> 
+    <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css"/>
+   
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+    
+    <script src="jquery-3.5.1.min.js"></script>
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+
+        html{scroll-behavior: smooth; min-width:1264px}
+        *{padding: 0;margin: 0;}
+        body{box-sizing:border-box; font-size:14px; font-family: 'Noto Sans KR', sans-serif; }
+        ul,li{list-style:none}
+        a{text-decoration:none; color:black; display:block }
+        img{vertical-align:top}
+        input{border:none; padding:8px; box-sizing:border-box}
+        input::placeholder{font-family: 'Cormorant Garamond', serif}
+        input:focus{border:none}
+        input:active{border:none}
+
+
+        .header{font-family: 'Cormorant Garamond', serif; font-size:15px; font-weight:600;  z-index:99; width: 100%; background: #fff;}
+        .top_nav{background: #fff; top:0; left:0; height: 80px; overflow:hidden; box-shadow: 0 1px 4px 0 rgb(105 105 105 / 50%)}
+        .top_nav_right{position: absolute; top:5%; right:0; margin-top: -6px;}
+        .top_nav li{float:left;}
+        .top_nav_left li{margin-left: 20px;}
+        .top_nav_right li{margin-right: 20px;}
+        .top_nav_left{position:absolute; top:5%; left:0; margin-top: -6px;}
+        .top_nav_left input{
+            background-color: #bbcbdd;
+            width: 150px;
+            height: 25px;
+            border-radius: 50px;
+           }
+        .top_nav_left input::placeholder{padding:10px; color:white}
+        .main_logo{
+            background-image:url(image/dove_logo.png);
+            background-size: 100% 100%;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top:4%;
+            left: 50%;
+            margin-top: -43px;
+            margin-left: -50px;
+        }
+
+    </style>
+    <header>
+        <div class="header">
+            <div class="top_nav">
+                <ul class="top_nav_left">
+                    <li>
+                        <form action="">
+                            <input type="text" placeholder="search">
+                        </form>
+                    </li>
+                    <li><a href="#">Cart</a></li>
+                </ul>
+                <div class="main_logo"></div>
+                <ul class="top_nav_right">
+                    <li><a href="">Login</a></li>
+                    <li><a href="">Sign up</a></li>
+                </ul>
+            </div>
+
+
+    <script>
+        $(function(){
+            // $('.gnv_con li').hover(function(){
+            //     h="278px";
+            //     if($('.gnv_inner').hasClass('on')){
+            //         $('.gnv_inner').stop().animate({height:0},500)
+            //         $('.gnv_inner').removeClass('on')                
+            //     }else{
+            //         $('.gnv_inner').addClass('on')
+            //         $('.gnv_inner').stop().animate({height:h}, 500)
+            //     }
+            // })
+
+            // $('.gnv_inner').hover(function(){
+            //     h="278px";
+            //     if($('.gnv_inner').hasClass('on')){
+            //         $('.gnv_inner').stop().animate({height:0},500)
+            //         $('.gnv_inner').removeClass('on')                
+            //     }else{
+            //         $('.gnv_inner').addClass('on')
+            //         $('.gnv_inner').stop().animate({height:h}, 500)
+            //     }
+            // })
+            $('.gnv_con li').hover(function(){
+               $('.gnv_con ul').stop().animate({height:500}, 500)
+               $('.gnv .bg').stop().animate({height:400}, 400)  
+            }, function(){
+                $('.gnv_con ul,.bg').stop().animate({height:0}, 200)
+                $('.gnv .bg').stop().animate({height:0}, 300)  
+ 
+            })
+            
+        })
+
+    </script>
+
+    <style>
+        .gnv{
+            position:relative; height: 60px; width: 100%;
+            background: #ffffff; ;
+            box-shadow: 0 2px 4px 0 rgb(105 105 105 / 50%);
+        }
+        .gnv .bg{ position: absolute; background-image: url(image/main2bg.png); 
+                    top:59px;
+                    background-size: 120% 95%; background-repeat: no-repeat;
+                    background-position: -30px 0px; width: 100%; height: 0; z-index:3}
+        .gnv_con{width: 900px; margin: 0 auto; line-height: 60px; font-size:18px; font-weight:700}
+        .gnv_con::after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+        .gnv_con>li{width: 25%; float:left; text-align:center; position: relative; z-index:5}
+        .gnv_con>li a{display:block;color:#02275f }
+        .gnv_con>li a:hover .gnv_on{display:block;}
+
+        .gnv_con ul{position: absolute; overflow:hidden; height: 0; top:70px; left: 0; width: 100%; z-index:4; }
+
+        /* {
+            opacity:0; visibility:hidden;
+        }
+        .gnv_inner_con{width: 900px; height: 180px; margin:30px auto;}
+        .gnv_inner_con ul{float:left; margin-right: 17%;}
+        .gnv_inner_con ul:nth-child(3){margin-left: -10px;}
+        .gnv_inner_con ul:last-child{margin-right: 0; margin-left: 10px;}
+        .gnv_inner_con ul li{margin-bottom:10px;}
+        .gnv_inner.on{overflow:hidden; position:absolute; height: 278px; width: 100%; z-index:-10;
+        top: 139px; left:0px; filter: drop-shadow(25px -1px 9px rgb(131, 131, 131));
+       background-image: url(image/gnb_bg.png);
+       background-size: 2220px 960px;
+       background-position: -236px -745px;
+       background-repeat: no-repeat;
+       font-size:14px;
+       color:rgb(20, 20, 20);
+       opacity:1;
+       visibility: visible
+       } */
+        
+    </style>
+            <div class="gnv">
+            <div class="bg"></div>
+               <ul class="gnv_con">
+                    <li><a href="">
+                        Products</a>
+                        <ul>
+                            <li>Skin Cleansing</li>
+                            <li>Skin Care</li>
+                            <li>Deodorants</li>
+                            <li>Hair Care</li>
+                            <li>Dove Collections</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">Baby Dove</a>
+                        <ul>
+                            <li>Baby Bathing</li>
+                            <li>Baby Skin Care</li>
+                            <li>Baby Hair Care</li>
+                            <li>Baby Wipes</li>
+                            <li>Baby Gifts</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">Men+Care</a>
+                        <ul>
+                            <li>Men's Skin Care</li>
+                            <li>Men's Skin Cleansing</li>
+                            <li>Men's Shaving</li>
+                            <li>Men's Hair Care</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">Dove stories</a>
+                        <ul>
+                            <li>Dove Campaigns</li>
+                            <li>Tips & How To</li>
+                            <li>About Dove</li>
+                        </ul>
+                    </li>
+                </ul><!--gnv_con--->
+            </div> <!----gnv-->
+        </div><!----header-->
+    </header>
+    <main>
+        <style>
+            .main_banner{position:relative; }
+            .main_banner .swiper-container{width: 100%;}
+
+            
+            .main_banner .inner{width: 1200px; margin:0 auto}
+            .main_banner .inner::after{content:""; display: block; clear:both}
+            .main_banner .main_txt{float:left; text-align:left; margin-top: 20px;}
+            .main_banner div strong{display:block; color:white; font-size:70px; 
+            margin-bottom: 20px; font-family: 'Cormorant Garamond', serif; line-height: 1.2;
+            transform: translateX(-50px);
+            transition:1.5s ease;
+            }
+            .main_banner div p{ color:white; font-size:18px; margin-bottom: 20px;
+                transform: translateX(-50px);
+                transition:1.3s ease;
+            }
+
+            .main_banner .swiper-slide{background: #02275f; height: 450px; position:relative}
+            .main_banner .swiper-slide:first-child{background-image: url(gel2.png); background-repeat: no-repeat; background-position: 1090px; background-size: 400px 543px; }
+            .main_banner .swiper-slide:first-child .inner .main_img{float:right; background-image:url(image/skincare4.png); width: 330px; height: 330px; margin-right: 210px; 
+                                                                        margin-bottom: 50px; background-repeat: no-repeat; background-size: 320px 320px; }
+
+            .main_banner .swiper-slide:nth-child(2){background: white; background-image: url(image/jhi4.jpg); background-repeat: no-repeat; background-position: 0;}
+            .main_banner .swiper-slide:nth-child(2) .main_txt{margin-top: 0;}
+            .main_banner .swiper-slide:nth-child(2) strong{color:#141516; font-family: 'Cormorant Garamond', serif;}
+            .main_banner .swiper-slide:nth-child(2) p{color: #3c495c}
+            .main_banner .swiper-slide:nth-child(2) a{color:#0c0f13; border:2px solid #000000}
+            .main_banner .swiper-slide:nth-child(2) a:hover{color: #000000; background:white; border:2px solid white }
+
+            .main_banner .swiper-slide-active p,
+            .main_banner .swiper-slide-active strong,
+            .main_banner .swiper-slide-active a
+            {
+                transform:translateX(0)
+            }
+
+            i{
+                border:5px solid #1437705c
+            }
+            .bubble_01{
+                width: 200px;
+                height: 200px;
+                position:absolute;
+                top:0;
+                left:0;
+                border-radius:50%;
+                animation-duration: 40s;
+                animation-name: b01;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b01 {
+                0% {
+                    top:0;
+                    left:0%;
+                }
+
+                50% {
+                    top:80%; 
+                    left:20%
+                }
+                100% {
+                    top:-20%;
+                    left:-5%;
+                }
+                }
+
+            .bubble_02{
+                width: 100px;
+                height: 100px;
+                
+                position:absolute;
+                bottom:-40%;
+                left:10%;
+                border-radius:50%;
+                animation-duration: 40s;
+                animation-name: b02;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b02 {
+                0% {
+                    bottom: -40%;
+                    left: 20%;
+                }
+                50% {
+                    bottom: 110%;
+                    left: 40%;
+                }
+                100% {
+                    bottom: -10%;
+                    left: 30%;
+                }
+            }    
+
+            .bubble_03{
+                width: 60px;
+                height: 60px;
+                
+                position:absolute;
+                top:-20%;
+                left:50%;
+                border-radius:50%;
+                animation-duration: 42s;
+                animation-name: b03;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b03 {
+                0% {
+                    top: -5%;
+                    left: 50%;
+                }
+                50% {
+                    top: 110%;
+                    left: 30%;
+                }
+                100% {
+                    top: -10%;
+                    left: 40%;
+                }
+            }    
+
+            .bubble_04{
+                width: 40px;
+                height: 40px;
+                
+                position:absolute;
+                top:-20%;
+                left:20%;
+                border-radius:50%;
+                animation-duration: 40s;
+                animation-name: b04;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b04 {
+                0% {
+                    top: -20%;
+                    left: 20%;
+                }
+                50% {
+                    top: 110%;
+                    left: 60%;
+                }
+                100% {
+                    top: -20%;
+                    left: 10%;
+                }
+            }   
+
+            
+            .bubble_05{
+                width: 20px;
+                height: 20px;
+                
+                position:absolute;
+                bottom:-20%;
+                left:10%;
+                border-radius:50%;
+                animation-duration: 38s;
+                animation-name: b05;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b05 {
+                0% {
+                    bottom: -70%;
+                    left: 10%;
+                }
+                50% {
+                    bottom: 110%;
+                    left: 20%;
+                }
+                100% {
+                    bottom: -20%;
+                    left: 30%;
+                }
+            } 
+            
+            .bubble_06{
+                width: 70px;
+                height: 70px;
+                
+                position:absolute;
+                bottom:-20%;
+                left:10%;
+                border-radius:50%;
+                animation-duration: 38s;
+                animation-name: b06;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b6 {
+                0% {
+                    bottom: -90%;
+                    left: 30%;
+                }
+                50% {
+                    bottom: 70%;
+                    left: 40%;
+                }
+                100% {
+                    bottom: -50%;
+                    left: 30%;
+                }
+            } 
+
+            .bubble_07{
+                width: 50px;
+                height: 50px;
+                
+                position:absolute;
+                bottom:-20%;
+                left:10%;
+                border-radius:50%;
+                animation-duration: 38s;
+                animation-name: b07;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b07 {
+                0% {
+                    top: -90%;
+                    right: 30%;
+                }
+                50% {
+                    top: 70%;
+                    right: 40%;
+                }
+                100% {
+                    top: -50%;
+                    right: 30%;
+                }
+            } 
+
+            .bubble_08{
+                width: 10px;
+                height: 10px;
+                
+                position:absolute;
+                bottom:-20%;
+                left:10%;
+                border-radius:50%;
+                animation-duration: 38s;
+                animation-name: b08;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b08 {
+                0% {
+                    top: -120%;
+                    left: 60%;
+                }
+                50% {
+                    top: 90%;
+                    right: 50%;
+                }
+                100% {
+                    top: -30%;
+                    right: 20%;
+                }
+            } 
+
+            .bubble_09{
+                width: 40px;
+                height: 40px;
+                
+                position:absolute;
+                bottom:-20%;
+                left:10%;
+                border-radius:50%;
+                animation-duration: 38s;
+                animation-name: b09;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b09 {
+                0% {
+                    bottom: -40%;
+                    left: 100%;
+                }
+                50% {
+                    bottom: 130%;
+                    right: 50%;
+                }
+                100% {
+                    bottom: -60%;
+                    right: 50%;
+                }
+            } 
+
+            .bubble_10{
+                width: 15px;
+                height: 15px;
+                
+                position:absolute;
+                bottom:-20%;
+                left:10%;
+                border-radius:50%;
+                animation-duration: 38s;
+                animation-name: b10;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b10 {
+                0% {
+                    bottom: -50%;
+                    right: 10%;
+                }
+                50% {
+                    bottom: 100%;
+                    right: 40%;
+                }
+                100% {
+                    bottom: -80%;
+                    right: 60%;
+                }
+            } 
+
+            .main_banner a{border:2px solid #fff; color:white; text-align:center;
+                transform: translateX(-50px); 
+                transition:0.2s ease;
+                width: 130px; padding:10px 50px 10px 40px;
+                box-sizing: border-box; display:block;}
+            .main_banner a:hover{background: #ffffff; color: #02275f}
+            
+            .main_banner .swiper-pagination-bullet-active {
+          background: #c8ae65;
+}
+            .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+
+      /* Center slide text vertically */
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+        </style>
+        <div class="main">
+            <div class="main_banner">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <i class="bubble_01"></i>
+                                <i class="bubble_02"></i>
+                                <i class="bubble_03"></i>
+                                <i class="bubble_04"></i>
+                                <i class="bubble_05"></i>
+                                <i class="bubble_06"></i>
+                                <i class="bubble_07"></i>
+                                <i class="bubble_08"></i>
+                                <i class="bubble_09"></i>
+                                <i class="bubble_10"></i>
+                                <div class="inner">
+                                    <div class="main_txt">
+                                        <strong>Dove DermaSpa<br>body care collection</strong>
+                                        <p>#부드러운벨벳 #빛나는피부</p>
+                                        <a href="">Detail</a>
+                                    </div>
+                                    <div class="main_img"></div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="inner">
+                                    <div class="main_txt">
+                                        <strong>
+                                            Men+care charcoal <br>clay body wash</strong>
+                                        <p>#부드럽게빛나는 #완벽한하루</p>
+                                        <a href="">Detail</a>
+                                    </div>
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div><!--main banner-->
+    
+            <script type="module">
+                     var swiper = new Swiper('.main_banner .swiper-container', {
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+                        spaceBetween:90,
+                        centeredSlides: true,
+                        autoplay: {
+                            delay: 3500,
+                            disableOnInteraction: false,
+                        }
+                        });
+
+                        var swiper = new Swiper('.dove_insta .swiper-container', {
+                        pagination: {
+                            el: '.swiper-pagination',
+                        },
+                        spaceBetween:90,
+                        centeredSlides: true,
+                        autoplay: {
+                            delay: 3500,
+                            disableOnInteraction: false,
+                        }
+                        });
+            </script>
+            <style>
+                .hover{padding: 100px 0;}
+                .hover_con{width: 1300px; margin: 0 auto;}
+                .hover_img ul li{position:relative; width: 180px; height: 180px; transition: 0.3s ease}
+                .hover_img ul li span{padding: 10px; color:rgb(255, 255, 255); font-size:11px; font-weight:700}
+                .hover_con img{position: absolute; bottom: -20px; right:0px; width: 70%; filter: drop-shadow(7px 2px 1px rgba(20, 20, 20, 0.5));}
+                .hover2 img{left:0px;}
+                .hover_con strong{display:block; margin-bottom: 20px; font-size: 25px}
+                .hover_text p{font-size:16px;}
+
+                .hover1{height: 250px;}
+                .hover1 li{float:left; margin-right: 20px;}
+                .hover1 .hover_text{width: 300px; font-weight:400}
+                .hover1_1{background-image: url(image/texture2.jpg); background-size:100% 100%}
+                .hover1_1:hover{background-image: url(image/cream2.jpg); background-size: 100% 100%; }
+                .hover1_2{background-image: url(image/bg2.jpg); background-size:100% 100%}
+                .hover1_2:hover{background-image: url(image/cream3.jpg); background-size: 100% 100%; }
+                .hover1_3{background-image: url(image/bg3.jpg); background-size:100% 100%}
+                .hover1_3:hover{background-image: url(image/cream2.jpg); background-size: 100% 100%; }
+                .hover1_4{background-image: url(image/hover_bg.jpg); background-size:100% 100%}
+                .hover1_4:hover{background-image: url(image/cream3.jpg); background-size: 100% 100%; }
+
+                .hover2{height: 250px;}
+                .hover2 li{float:right; margin-right: 20px;}
+                .hover2 .hover_text{width: 300px; font-weight:400}
+                .hover2_1{background-image: url(image/hover_bg3.jpg); background-size:100% 100%}
+                .hover2_1:hover{background-image: url(image/cream3.jpg); background-size: 100% 100%; }
+                .hover2_2{background-image: url(image/hover_bg2.jpg); background-size:100% 100%}
+                .hover2_2:hover{background-image: url(image/cream2.jpg); background-size: 100% 100%; }
+                .hover2_3{background-image: url(image/hover_bg4.jpg); background-size:100% 100%}
+                .hover2_3:hover{background-image: url(image/cream3.jpg); background-size: 100% 100%; }
+                .hover2_4{background-image: url(image/hover_bg5.jpg); background-size:100% 100%}
+                .hover2_4:hover{background-image: url(image/cream2.jpg); background-size: 100% 100%; }
+                
+
+            </style>
+            <div class="hover">
+                <div class="hover_con">
+                    <ul class="hover1">
+                        <li class="hover_text">
+                            <strong>What's new</strong>
+                            <p>새로운 Dove DermaSpa를 만나보세요. 사상 처음으로 최신 피부 관리 기술을 바디 케어 컬렉션에 도입했습니다.</p>        
+                        </li>
+                        <li class="hover_img">
+                            <ul>
+                                <li class="hover1_1" data-aos="fade-up"  data-aos-duration="500" data-aos-offset="100" >
+                                    <span>Cream</span>
+                                    <img src="image/skincare1.png" alt="">
+                                </li>
+                                <li class="hover1_2" data-aos="fade-up" data-aos-duration="400" data-aos-offset="100" >
+                                    <span>Jel</span>
+                                    <img src="image/skincare2.png" alt="">
+                                </li>
+                                <li class="hover1_3" data-aos="fade-up" data-aos-duration="300" data-aos-offset="100">
+                                    <span>Logtion</span>
+                                    <img src="image/skincare3.png" alt="">
+                                </li>
+                                <li class="hover1_4" data-aos="fade-up" data-aos-duration="200" data-aos-offset="100">
+                                    <span>Essense</span>
+                                    <img src="image/skincare4.png" alt="">
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="hover2">
+                        <li class="hover_text">
+                            <strong>New Men's line</strong>
+                            <p>남성들을 위한 Dove만의 섬세함, 부드러움. 특별 케어 라인을 만나보세요.</p>
+                        </li>
+                        <li class="hover_img">
+                            <ul>
+                                <li class="hover2_1" data-aos="fade-up"  data-aos-duration="500" data-aos-offset="200">
+                                    <span>Jel</span>
+                                    <img src="image/men_deo.png" alt="">
+                                </li>
+                                <li class="hover2_2" data-aos="fade-up" data-aos-duration="400" data-aos-offset="200">
+                                    <span>Lotion</span>
+                                    <img src="image/men_deo2.png" alt="">
+                                </li>
+                                <li class="hover2_3" data-aos="fade-up" data-aos-duration="300" data-aos-offset="200">
+                                    <span>cream</span>
+                                    <img src="image/men.png" alt="">
+                                </li>
+                                <li class="hover2_4" data-aos="fade-up" data-aos-duration="200" data-aos-offset="200">
+                                    <span>Deo</span>
+                                    <img src="image/men1.png" alt="">
+                                </li>
+                            </ul>
+                        </li>
+                    </ul><!--hover2-->
+                </div>
+            </div><!--hover contents-->
+            <style>
+                .big_main{width:100%; overflow: hidden;}
+                .big_main_left strong{
+                    font-size: 40px;
+                    display: block;
+                    padding-bottom:20px;
+                }
+                .big_main_left img{
+                    width: 210px;
+                    height: 300px;
+                    margin-bottom: 30px;
+                }
+                .big_main_left{
+                    padding:150px;
+                    width:50%;
+                    float:left;
+                    background: rgb(241, 241, 241);
+                    box-sizing: border-box;
+                    font-size:16px;
+                    position:relative;
+                }
+                .big_main_left img.bubble_c{
+                    position:absolute;
+                    top: 180px;
+                    left: 35px;
+                    width: 200px;
+                    height: 200px;
+                    transition:0.6s ease-in;
+                    opacity:1;
+                }
+
+                .big_main_left p:last-child a{
+                    margin-top: 20px;
+                    color: rgb(5 31 140)
+                }
+                .big_main_right{
+                    background-color: rgb(14, 25, 71);
+                    width:50%;
+                    height: 821px;
+                    float:right;
+                    position:relative;
+                    overflow:hidden;
+                    transition: 0.7s ease-in
+                }
+                .big_main_right img{
+                    width: 824px;
+
+                }
+
+                .big_main_right .new{
+                    position: absolute;
+                    bottom: 33px;
+                    right: 13px;
+                    width: 400px;
+                    height: 400px;
+                    z-index: 3;
+                }
+                .big_main_right .gel{
+                    position: absolute;
+                    bottom: 0;
+                    right: 30px;
+                    z-index: 2;
+                    width: 200px;
+                    transition: 1.3s ease;
+                    transform: translateY(0);
+                    animation: gel 11s linear 1s infinite forwards;
+                }
+                .big_main_right .gel2{
+                    position: absolute;
+                    bottom: 200px;
+                    right: 200px;
+                    z-index: 2;
+                    width: 150px;
+                    transition: 1.3s ease;
+                    transform: translateY(10);
+                    animation: gel 11s linear 0.1s infinite forwards;
+                }
+
+                @keyframes gel{
+                    0% {
+                            transform: translateY(0)
+                            }
+                            50% {
+                            transform: translateY(30px);
+                            }
+                            75% {
+                            }
+                            100% {
+                            transform: translateY(0);
+                            }
+                        }
+
+                .big_main_right strong{
+                    font-size: 100px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 20px;
+                    color: white;
+                    
+                }
+            </style>    
+            <div class="big_main">
+                <div class="big_main_left">
+                    <strong>Dove cleansing</strong>
+                    <img class="bubble_c" src="pngegg.png" alt="">
+                    <img class="small_w" src="dove_w1.jpg" alt="">
+                    <p>Looking for gifts for me and friends?
+                        <br> Give the gift of care with Dove<br>
+                        자연스럽게 빛나는 피부, 부드럽지만 강력한 Dove의 cleansing.
+                    </p>
+                    <p><a href="">more →</a></p>
+                </div>
+                <div class="big_main_right">
+                    <!-- <img class="gel" src="pngegg.png" alt="">
+                    <img class="gel2" src="pngegg.png" alt="">
+                    <img class="new" src="image/new5.png" alt=""> -->
+                    <img src="dove_w.jpg" alt="">
+                    <strong>
+                        Pure<br>
+                        &Strong
+                    </strong>
+                </div>
+            </div>
+<script>
+    var controller = new ScrollMagic.Controller();
+    
+    var tween1 = TweenMax.to('.big_main .bubble_c', 0.5, {
+    });
+    
+    var scene = new ScrollMagic.Scene({
+        triggerElement: ".big_main",
+        duration: "50%",
+        offset:150,
+    })
+    .setTween(tween1)
+    .addTo(controller)
+
+    var tween2 = TweenMax.to('.big_main .big_main_right img', 0.5, {
+        scale:1.1
+    });
+    
+    var scene = new ScrollMagic.Scene({
+        triggerElement: ".big_main",
+        duration: "50%",
+        offset:250,
+    })
+    .setTween(tween2)
+    .addTo(controller)
+</script>            
+
+        <style>
+            .main2{position:relative; z-index: 2;}
+            .main2_con{width: 1200px; margin: 0 auto; padding-bottom:200px}
+            .main2_title{display:block; padding-top: 180px; box-sizing:border-box; margin-bottom: 30px; text-align:center; font-size:120px; color:white}
+            
+            .main2_con{position:relative; overflow:hidden; margin-top: 90px;}
+            .main2_con .main2_img{  
+                                    float: left;
+                                    width: 50%;
+                                    padding: 80px;
+                                    box-sizing: border-box;
+                                    transform: translateY(1000px);
+                                    transition: 1.5s cubic-bezier(0.43, 0.11, 0.14, 1.1);
+                                }
+            .main2_con .main2_img.on_scroll{transform: translateY(20px);}
+
+            .main2_con .main2_img img{ transition:1.3s ease; transform: translateY(0); animation: main2_img 12s linear 0.1s infinite forwards;}
+                @keyframes main2_img {
+                    0% {
+                            transform: translateY(0)
+                            }
+                            50% {
+                            transform: translateY(70px);
+                            }
+                            75% {
+                            }
+                            100% {
+                            transform: translateY(0);
+                            }
+                        }
+
+
+            .main2_con img{width: 100%}
+            .main2_text{float: right; width:44%; color:white}
+            .main2_text span{display:block; font-weight:700; font-size: 30px; margin-bottom: 20px;}
+           
+            .main2_text p{font-size:14px; line-height:2;}
+
+            .main2_detail_list{margin-left: 20px;}
+            .main2_detail_list li{margin-bottom: 10px;font-size:14px; font-weight:500; list-style:circle;}
+            .main2_detail_list{margin-bottom: 20px;}
+
+            .num{overflow:hidden; padding:10px; margin-top: 30px; border-bottom: 2px solid #fff}
+            .num strong{float:left;}
+            .num ul{float:right}
+            .num li{float:left; padding:0 10px; font-weight:700}
+
+            .ingre{overflow: hidden; padding:10px; border-bottom: 2px solid #fff}
+            .ingre li:first-child{float: left; font-weight:700; }
+            .ingre span{ font-size:14px; margin-bottom: 0;}
+            .ingre_txt{overflow:hidden; float:left; display:block; height: 0;}
+            .more{float:right; color:#fff}
+
+            .all_bg{
+                visibility: hidden;
+                opacity:0;
+                position:fixed; top: 0;left: 0; width: 100%; background: #02275f; height: 100%;
+            }
+        </style>
+        <script>
+            $(function(){
+                $('.ingre').click(function(){
+                    h=$(this).find('p').outerHeight();
+                    if($(this).hasClass('on')){
+                        $('.ingre').removeClass('on');
+                        $('.ingre').find('.ingre_txt').stop().animate({height:0},500)
+                    }else{
+                        $('.ingre').find('.ingre_txt').stop().animate({height:0},500)
+                        $(this).find('.ingre_txt').stop().animate({height:h},500)
+                        $(this).addClass('on')
+                    }
+                })
+            })
+
+        </script>
+
+
+        <style>
+           .bubble2 .bubble_01{
+                width: 300px;
+                height: 300px;
+                
+                position:absolute;
+                top:100%;
+                left:-10%;
+                border-radius:50%;
+                animation-duration: 45s;
+                animation-name: b01;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b01 {
+                0% {
+                    top:100%;
+                    left:-10%;
+                }
+
+                50% {
+                    top:-50%; 
+                    left:20%
+                }
+                100% {
+                    top:100%;
+                    left:-5%;
+                }
+                }
+
+            .bubble2 .bubble_02{
+                width: 50px;
+                height: 50px;
+                
+                position:absolute;
+                bottom:-40%;
+                left:10%;
+                border-radius:50%;
+                animation-duration: 40s;
+                animation-name: b02;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b02 {
+                0% {
+                    bottom: 0%;
+                    left: 20%;
+                }
+                50% {
+                    bottom: 100%;
+                    left: 40%;
+                }
+                100% {
+                    bottom: 0%;
+                    left: 30%;
+                }
+            }    
+
+            .bubble2 .bubble_03{
+                width: 90px;
+                height: 90px;
+                
+                position:absolute;
+                top:-20%;
+                left:50%;
+                border-radius:50%;
+                animation-duration: 42s;
+                animation-name: b03;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b03 {
+                0% {
+                    top: 20%;
+                    left: 50%;
+                }
+                50% {
+                    top: 110%;
+                    left: 30%;
+                }
+                100% {
+                    top: 20%;
+                    left: 40%;
+                }
+            }    
+
+            .bubble2 .bubble_04{
+                width: 40px;
+                height: 40px;
+                
+                position:absolute;
+                top:-20%;
+                left:20%;
+                border-radius:50%;
+                animation-duration: 40s;
+                animation-name: b04;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b04 {
+                0% {
+                    top: 40%;
+                    left: 20%;
+                }
+                50% {
+                    top: 110%;
+                    left: 60%;
+                }
+                100% {
+                    top: 30%;
+                    left: 10%;
+                }
+            }   
+
+            
+            .bubble2 .bubble_05{
+                width: 20px;
+                height: 20px;
+                
+                position:absolute;
+                bottom:-20%;
+                left:10%;
+                border-radius:50%;
+                animation-duration: 38s;
+                animation-name: b05;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b05 {
+                0% {
+                    bottom: 10%;
+                    left: 10%;
+                }
+                50% {
+                    bottom: 110%;
+                    left: 20%;
+                }
+                100% {
+                    bottom: 10%;
+                    left: 30%;
+                }
+            } 
+
+            .bubble2 .bubble_06{
+                width: 40px;
+                height: 40px;
+                
+                position:absolute;
+                top:10%;
+                right:-10%;
+                border-radius:50%;
+                animation-duration: 38s;
+                animation-name: b06;
+                animation-iteration-count: infinite;
+            }
+
+            @keyframes b06 {
+                0% {
+                    top: 10%;
+                    right: -10%;
+                }
+                50% {
+                    top: 110%;
+                    right: 20%;
+                }
+                100% {
+                    top: 10%;
+                    right: 40%;
+                }
+            } 
+        </style>
+        <div class="all_bg bubble2">
+            <i class="bubble_01"></i>
+            <i class="bubble_02"></i>
+            <i class="bubble_03"></i>
+            <i class="bubble_04"></i>
+            <i class="bubble_05"></i>
+            <i class="bubble_06"></i>
+            <i class="bubble_07"></i>
+            <i class="bubble_08"></i>
+            <i class="bubble_09"></i>
+            <i class="bubble_10"></i>
+
+        </div>
+            <div class="main2">
+                <div class="main2_con">
+                    <strong class="main2_title">For smooth and <br>soft skin</strong>
+                    <div class="main2_img">
+                        <img src="image/dove_white.png" alt="">
+                    </div>
+                  <div class="main2_text">
+                    <span>White Beauty Bar</span>
+                    <ul class="main2_detail_list">
+                        <li>도브만의 차별화된 보습효과</li>
+                        <li>1/4 모이스처 크림으로 피부를 촉촉하게</li>
+                        <li>일반 비누 대비 피부에 가까운 pH 7 중성</li>
+                    </ul>
+                    <p>피부가 매끄럽고, 빛나고, 부드럽다는 것을 아는 것만 큼 좋은 것은 없습니다. 올바른 제품을 사용하면 클렌징 루틴을 시작으로 매일 그 느낌을 가질 수 있습니다. Dove White Beauty Bar는 부드러운 클렌징 포뮬러와 시그니처 ¼ 보습 크림을 결합하여 일반 비누에 비해 부드럽고 매끄럽고 더 빛나는 피부를 선사합니다. <br> <br>Dove White Beauty Bar의 순한 클렌저는 피부를 벗겨내는 대신 천연 수분을 유지하도록 도와줍니다. 이 도브 바는 클렌징 과정에서 손실 된 영양분을 보충하는데도 도움이됩니다. 일반 비누는 피부를 단단하고 거칠게 만들 수 있습니다. Dove Beauty Bars는 더 부드럽고 빛나는 느낌을줍니다. 그러니 시도해보세요. 아침이 될 수도 있습니다. 뷰티 바와 바디워시는 같은 방식으로 먼지와 세균을 씻어냅니다.</p>               
+                        <div class="num">
+                            <strong>수량</strong>
+                            <ul class="num_check">
+                                <li>-</li>
+                                <li>1</li>
+                                <li>+</li>
+                            </ul>
+                        </div>
+                        <ul class="ingre">
+                            <li><span>Full list of Ingredients</span></li>
+                            <li class="more">▼</li>
+                            <li class="ingre_txt">
+                                <p>Aqua, Glycerin, Dimethicone, Isopropyl Myristate, Hydroxystearic Acid, Sodium Hydroxypropyl Starch Phosphate, Petrolatum, Arachidic Acid, Caprylyl Glycol, Cetearyl, Alcohol, Cetearyl Glucoside, Citrus Aurantifolia Peel Powder, Citrus Limon Peel Powder, Dimethicone Crosspolymer, Disodium EDTA, Glucose, Glyceryl Hydroxystearate, Hippophae Rhamnoides Oil, Palmitic Acid, Parfum, Phenoxyethanol, Sodium Hydroxide, Stearic Acid, Tapioca Starch, Alpha-Isomethyl Ionone, Benzyl Alcohol, Benzyl Salicylate, Butylphenyl Methylpropional, Citral, Citronellol, Coumarin, Geraniol, Hexyl Cinnamal, Limonene, Linalool, CI 77891</p>
+                            </li>
+                        </ul>
+
+            <style>
+                .price{overflow:hidden; margin-top: 50px; padding:10px; box-sizing:border-box; border-bottom:2px solid white}
+                .price strong{display:block; line-height: 42px; font-size:20px; float:left}
+                .price a{display:block; float:right; 
+                border: 2px solid white; 
+                font-weight:700; color:white;
+                padding:10px 20px;
+                }
+            </style>
+                    <div class="price">
+                        <strong>28,000</strong>
+                       <a href="">ADD TO CART</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+            <style>
+                .people{margin-top: 20px;}
+                .people img{border-radius:50%; width: 25px; height: 25px; float:left; margin-right: 10px; margin-bottom: 20px;}
+                .people span{font-weight:700}
+
+                .review_bg{position:relative; overflow:hidden;}
+                .review{padding: 50px; position:relative; margin: 0 auto; width: 1450px;
+                margin-top: -2px; height: 785px; overflow: hidden; 
+                z-index: 2;
+                        }
+                .review_wrap2{float:left;}
+                .review_wrap3{float:right;}
+                .dove_insta{z-index:3; box-shadow: 0 1px 4px 0 rgb(105 105 105 / 50%); margin-right: 1%; float:left; padding:20px; background: #ffffff3f; width: 300px; }
+                .dove_insta .swiper-container{width: 100%; height: 500px;}
+                .dove_insta .swiper-wrapper .swiper-slide{display:block; float:left; text-align:start;}
+                .dove_insta:last-child{margin-right: 0;}
+
+                
+                .dove_insta span:first-child{display:block; width:300px; box-sizing:border-box; line-height: 40px; padding:0 30px; text-align:center; 
+                    background: #f8f8f8; border-bottom:1px solid #cccccc; font-weight: 700;}
+                .insta_box{box-shadow: 0 1px 4px 0 rgb(105 105 105 / 20%); z-index:3; position:relative; background: #fff;  width: 1100px; border-radius:5px;}
+                .insta_header{padding:5px 20px; background: #ffffff; color:#000; box-sizing:border-box; overflow:hidden; 
+                                border-bottom:1px solid #cccccc}
+                .insta_header .profile{float:left; border-radius:50%; width: 40px; height: 40px; background-size: 100% 100%; background-image:url(profile1.jpg);}
+                .insta_header span{display:block; font-weight:700; text-align:start; font-size:12px; line-height:40px; margin-left: 62px;}
+                .insta_box img{width: 300px; height: 300px;}
+
+                .insta_icon{padding:10px; margin-top: 10px; margin-left: 10px; box-sizing:border-box}    
+                .svg{height: 10px; width: 10px;}
+                .insta_text{font-size:12px; margin-left: 10px; margin-bottom: 18px;padding:0 10px 10px 10px; box-sizing:border-box}
+                .insta_text p{margin-bottom: 5px;}
+                .insta_text strong{float:left}
+                .insta_text strong:first-child{margin-right: 10px;}
+
+                .move_font{
+                    color: #f1f1f1;
+                    font-size: 120px;
+                    font-weight: bold;
+                    position: absolute;
+                    top: -32px;
+                    left: 0;
+                    z-index: 2;
+                }
+                .move_font2{
+                    color: #f1f1f1;
+                    font-size: 120px;
+                    font-weight: bold;
+                    position: absolute;
+                    bottom: 164px;
+                    right: 0;
+                    z-index: 1;
+                }
+            .all_bg2{
+               visibility: hidden; opacity: 0;
+                position:fixed; top: 0;left: 0; width: 100%; background:white; height: 100%;
+            }
+
+           </style>
+           <div class="all_bg2"></div>
+           <div class="review_bg">
+            <div class="move_font">
+                INSTA REVIEW
+            </div>
+            <div class="move_font2">
+                INSTA REVIEW
+            </div>
+            <div class="review">
+                <div class="insta_sticky">
+                    <div class="dove_insta insta1">
+                        <span>#Dove</span>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide insta_box">
+                                    <div class="insta_header">
+                                        <div class="profile"></div>
+                                        <span>kim_***</span>
+                                    </div>
+                                    <img src="review2.jpg" alt="">
+                                    <div class="insta_icon">
+                                        <svg width="22" height="22" viewBox="0 0 48 48"> 
+                                            <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 48 48">
+                                            <path d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="insta_text">
+                                        <strong>kim_***</strong><p>나의 최애비누, 몽글몽글 기분좋아</p>
+                                        <strong>#도브성애자 #비누향기</strong>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide insta_box">
+                                    <div class="insta_header">
+                                        <div class="profile"></div>
+                                        <span>kim_***</span>
+                                    </div>
+                                    <img src="review5.jpg" alt="">
+                                    <div class="insta_icon">
+                                        <svg width="22" height="22" viewBox="0 0 48 48"> 
+                                            <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 48 48">
+                                            <path d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="insta_text">
+                                        <strong>kim_***</strong><p>나의 최애비누, 몽글몽글 기분좋아</p>
+                                        <strong>#도브성애자 #비누향기</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="dove_insta insta2">
+                        <span>#Dove</span>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide insta_box">
+                                    <div class="insta_header">
+                                        <div class="profile"></div>
+                                        <span>kim_***</span>
+                                    </div>
+                                    <img src="review4.jpg" alt="">
+                                    <div class="insta_icon">
+                                        <svg width="22" height="22" viewBox="0 0 48 48"> 
+                                            <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 48 48">
+                                            <path d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="insta_text">
+                                        <strong>kim_***</strong><p>나의 최애비누, 몽글몽글 기분좋아</p>
+                                        <strong>#도브성애자 #비누향기</strong>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide insta_box">
+                                    <div class="insta_header">
+                                        <div class="profile"></div>
+                                        <span>kim_***</span>
+                                    </div>
+                                    <img src="review3.jpg" alt="">
+                                    <div class="insta_icon">
+                                        <svg width="22" height="22" viewBox="0 0 48 48"> 
+                                            <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 48 48">
+                                            <path d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="insta_text">
+                                        <strong>kim_***</strong><p>나의 최애비누, 몽글몽글 기분좋아</p>
+                                        <strong>#도브성애자 #비누향기</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dove_insta insta3">
+                        <span>#Dove</span>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide insta_box">
+                                    <div class="insta_header">
+                                        <div class="profile"></div>
+                                        <span>kim_***</span>
+                                    </div>
+                                    <img src="image/insta1.jpg" alt="">
+                                    <div class="insta_icon">
+                                        <svg width="22" height="22" viewBox="0 0 48 48"> 
+                                            <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 48 48">
+                                            <path d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="insta_text">
+                                        <strong>kim_***</strong><p>나의 최애비누, 몽글몽글 기분좋아</p>
+                                        <strong>#도브성애자 #비누향기</strong>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide insta_box">
+                                    <div class="insta_header">
+                                        <div class="profile"></div>
+                                        <span>kim_***</span>
+                                    </div>
+                                    <img src="image/insta2.jpg" alt="">
+                                    <div class="insta_icon">
+                                        <svg width="22" height="22" viewBox="0 0 48 48"> 
+                                            <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 48 48">
+                                            <path d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="insta_text">
+                                        <strong>kim_***</strong><p>나의 최애비누, 몽글몽글 기분좋아</p>
+                                        <strong>#도브성애자 #비누향기</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dove_insta insta4">
+                        <span>#Dove</span>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide insta_box">
+                                    <div class="insta_header">
+                                        <div class="profile"></div>
+                                        <span>kim_***</span>
+                                    </div>
+                                    <img src="image/insta3.jpg" alt="">
+                                    <div class="insta_icon">
+                                        <svg width="22" height="22" viewBox="0 0 48 48"> 
+                                            <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 48 48">
+                                            <path d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="insta_text">
+                                        <strong>kim_***</strong><p>나의 최애비누, 몽글몽글 기분좋아</p>
+                                        <strong>#도브성애자 #비누향기</strong>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide insta_box">
+                                    <div class="insta_header">
+                                        <div class="profile"></div>
+                                        <span>kim_***</span>
+                                    </div>
+                                    <img src="image/insta4.jpg" alt="">
+                                    <div class="insta_icon">
+                                        <svg width="22" height="22" viewBox="0 0 48 48"> 
+                                            <path d="M34.6 6.1c5.7 0 10.4 5.2 10.4 11.5 0 6.8-5.9 11-11.5 16S25 41.3 24 41.9c-1.1-.7-4.7-4-9.5-8.3-5.7-5-11.5-9.2-11.5-16C3 11.3 7.7 6.1 13.4 6.1c4.2 0 6.5 2 8.1 4.3 1.9 2.6 2.2 3.9 2.5 3.9.3 0 .6-1.3 2.5-3.9 1.6-2.3 3.9-4.3 8.1-4.3m0-3c-4.5 0-7.9 1.8-10.6 5.6-2.7-3.7-6.1-5.5-10.6-5.5C6 3.1 0 9.6 0 17.6c0 7.3 5.4 12 10.6 16.5.6.5 1.3 1.1 1.9 1.7l2.3 2c4.4 3.9 6.6 5.9 7.6 6.5.5.3 1.1.5 1.6.5.6 0 1.1-.2 1.6-.5 1-.6 2.8-2.2 7.8-6.8l2-1.8c.7-.6 1.3-1.2 2-1.7C42.7 29.6 48 25 48 17.6c0-8-6-14.5-13.4-14.5z"></path>
+                                        </svg>
+                                        <svg width="22" height="22" viewBox="0 0 48 48">
+                                            <path d="M47.5 46.1l-2.8-11c1.8-3.3 2.8-7.1 2.8-11.1C47.5 11 37 .5 24 .5S.5 11 .5 24 11 47.5 24 47.5c4 0 7.8-1 11.1-2.8l11 2.8c.8.2 1.6-.6 1.4-1.4zm-3-22.1c0 4-1 7-2.6 10-.2.4-.3.9-.2 1.4l2.1 8.4-8.3-2.1c-.5-.1-1-.1-1.4.2-1.8 1-5.2 2.6-10 2.6-11.4 0-20.6-9.2-20.6-20.5S12.7 3.5 24 3.5 44.5 12.7 44.5 24z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="insta_text">
+                                        <strong>kim_***</strong><p>나의 최애비누, 몽글몽글 기분좋아</p>
+                                        <strong>#도브성애자 #비누향기</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <style>
+                .dove_bottom{width: 100%; position:relative; z-index:4; margin-top: -100px; height: 255px;}
+                .dove_bottom img{position:absolute; margin: 0; left: 0; z-index:-10;  width: 100%; }
+                .dove_bottom span{display:block; font-size:80px; text-align:center; font-weight: 700; color: rgb(27, 27, 27);}
+
+               
+            </style>
+    
+            <style>
+                .campaign{margin-top: -30px;width: 100%; height: 500px; position:relative; z-index:3;
+                }
+                .campaign_bg{
+                    position: absolute;
+                    width: 100%;
+                    height: 502px;
+                    z-index: -1;
+                    background-image: url(image/cam_bg.png);
+                    background-size: 100% 100%;
+                    background-repeat: no-repeat;
+                   
+                }
+                @keyframes wave{
+                    0% {
+                        transform: translateX(0);                    
+                        }
+                    50% {
+                    transform: translateX(2%);                    
+                    }
+                    100% {
+                        transform: translateX(0%);                    
+                        }
+                }
+                
+
+              
+             
+                .campaign ul li span{display:block; margin-bottom: 10px; border-radius:50%; 
+                box-sizing:border-box; color:#033280; font-weight:700; font-size:40px; text-align:center;}
+                .campaign ul li p{font-size: 18px;}
+
+                .campaign li a {
+                    border: 2px solid rgb(4, 32, 110);
+                    color: rgb(4, 32, 110);
+                    width: 80px;
+                    display: block;
+                    margin: 30px auto;
+                    padding: 10px 20px;
+                    font-size:12px;
+                } 
+        
+                .slick-track{padding:20px 0}
+
+                .cam_1{
+ 
+                    color: black;
+                    background-size:cover;
+                    }
+                .campaign .cam_1 span{color:rgb(4, 32, 110);}
+                .cam_2{
+                    background-image: url(water3.jpg);
+                    background-position:center;
+                    background-size: 100%;
+                    font-size:13px
+                }
+                .cam_3{background:rgb(250 250 250);}
+                .cam_4{
+                    background-position: center;
+                    background-size:100%;
+                    color: black;
+                }
+                .campaign .cam_4 span{color:rgb(4, 32, 110);}
+                .campaign ul .cam_5{
+                    background-image: url(water2.jpg);
+                    background-position:center;
+                    font-size:13px
+                }
+                .campaign ul .cam_5 p:first-child{
+                    color:rgb(4, 32, 110);
+                    font-weight:700
+                }
+                .cam_6{
+                    background-image: url(baby-in-bubble-bath.jpg);
+                    background-position: center;
+                    background-size: 100% 100%;
+                    color: white;
+                }
+                .campaign .cam_6 span{color:white;}
+
+                .campaign a{border:2px solid rgb(4, 32, 110); color:rgb(4, 32, 110); width: 80px; display:block; margin: 30px auto; padding:10px 20px;}
+                .campaign a:hover{background:rgb(4, 32, 110); color: white;}
+
+                .campaign .swiper-slide{
+                    width:460px;
+                    height:460px;
+                    border-radius:50%;
+                    box-shadow: 5px 3px 16px rgb(160 160 159 / 24%);
+                    padding:80px;
+                    box-sizing:border-box;
+                }
+
+                .campaign .swiper-button-prev, .campaign .swiper-button-next{
+                    color:rgb(4, 32, 110)
+                }
+            </style>
+            <div class="campaign">
+                <div class="campaign_bg"></div>
+                <div class="swiper-container">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide cam_4">
+                            <div>
+                                <span>Dove Campaign</span>
+                                <p>Dove와 함께해요!</p>
+                                <a href="">View detail</a>
+                            </div>
+                        </li>
+                        <li class="swiper-slide cam_2">
+                            <div>
+                                <p>작은 실천으로 우리 모두를 안전하게.<br> 도브와 함께 실천해요!</p>
+                            </div>
+                        </li>
+                        <li class="swiper-slide cam_1">
+                            <div>
+                                <span>Take care,<br> Be safe!</span>
+                                <a href="">View detail</a>
+                            </div>
+                        </li>
+                        <li class="swiper-slide cam_5">
+                            <div>
+                                <p>Find out the actions we've taken to care for our community.</p>
+                            </div>
+                        </li>
+
+                    </ul>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+           </div>
+            
+        </div><!--main-->
+    </main>
+<script>
+                    var swiper = new Swiper('.campaign .swiper-container', {
+                            pagination: {
+                                el: '.swiper-pagination',
+                            },
+                            navigation: {
+                                nextEl: '.swiper-button-next',
+                                prevEl: '.swiper-button-prev',
+                            },
+                            slidesPerView:'auto',
+                            spaceBetween:90,
+                            loop:true,
+                            centeredSlides: true,
+                            autoplay: {
+                                delay: 3500,
+                                disableOnInteraction: false,
+                            }
+                            });
+</script>
+    <style>
+        .foot{position:relative; z-index:2;background: #e2ecf2; color:#02275f; padding-bottom: 40px; overflow:hidden;}
+        .foot_box{ width: 1200px; margin: 0 auto; overflow:hidden; font-size:11px; height: 250px;}
+        .foot_box a{color:#02275f}
+        .foot_box ul{float:left; margin-top: 50px; margin-right: 11%; }
+        .foot_box div{float:left; margin-top: 50px; width:300px}
+        .foot_box li{padding:5px;}
+        .foot_box li:first-child{font-weight:700;}
+        .foot form{margin-top: 15px;}
+        .foot form input{background: #02275f; border-radius:15px; 
+        height: 25px; padding:10px; box-sizing:border-box}
+        .foot form input::placeholder{font-size:11px; color:white;}
+        .foot form button{background:#02275f; font-size:11px; color: white; border:2px solid white; 
+        padding:5px 15px; margin-left: 10px; border-radius: 15px;
+        }
+
+        .subscribe{position:relative; background: #ffffff; padding: 20px; box-sizing:border-box; box-shadow:5px 3px 16px rgb(160 160 159 / 24%); color:#02275f}
+        .subscribe span{display:block; font-weight:700; margin-bottom: 15px;}
+        .subscribe button a{color:white; font-size:10px; font-weight:700;}
+    </style>
+    <footer>
+        <div class="foot">
+            <div class="foot_box">
+                <ul class="sns">
+                    <li>Social</li>
+                    <li class="insta">
+                        <a href="">Instagram</a>
+                    </li>
+                    <li class="facebook">
+                        <a href="">Facebook</a>
+                    </li>
+                    <li class="youtube">
+                        <a href="">Youtube</a>
+                    </li>
+                    <li class="twitter">
+                        <a href="">Twitter</a>
+                    </li>
+                </ul>
+                <ul class="company">
+                    <li>
+                        Company
+                    </li>
+                    <li>
+                        <a href="">About us</a>
+                    </li>
+                    <li>
+                        <a href="">Careers</a>
+                    </li>
+                    <li>
+                        <a href="">Blog</a>
+                    </li>
+                </ul>
+                <ul class="support">
+                    <li>
+                        Support
+                    </li>
+                    <li>
+                        <a href="">Contact Us</a>
+                    </li>
+                    <li>
+                        <a href="">Help Center</a>
+                    </li>
+                    <li>
+                        <a href="">Request a Product</a>
+                    </li>
+                </ul>
+                <ul class="Business">
+                    <li>Business</li>
+                    <li>Become a Supplier</li>
+                    <li>Parterships</li>
+                </ul>
+                <div class="subscribe">
+                    <span>subscribe</span>
+                    <p>Updates you'll want to know about-new products, stories, and events. No logos, no span, Unsubscribe anytime.</p>
+                    <form action="">
+                        <input type="text" name="" id="" placeholder="Your email address.">
+                        <button><a href="">Enroll</a></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        var controller = new ScrollMagic.Controller();
+    
+        var tween1 = TweenMax.to('.all_bg', 0.5, {
+            visibility:'visible',
+            opacity: 1,
+        });
+        
+        var scene = new ScrollMagic.Scene({
+            triggerElement: ".main2",
+            duration: "100%",
+            offset:-150,
+        })
+        .setTween(tween1)
+        .addTo(controller)
+       
+        
+  
+        var tween2 = TweenMax.to('.all_bg2', 0.5, {
+            visibility:'visible',
+            opacity: 1,
+        });
+        
+        var scene = new ScrollMagic.Scene({
+            triggerElement: ".review_bg",
+            duration: "0%",
+            offset:-150,
+        })
+        .setTween(tween2)
+        .addTo(controller)
+       
+
+        var tweenYoyo = TweenMax.fromTo(".move_font", 0.6, {
+                x:0
+            }, {
+                x:'100%'
+            })
+        var tweenYoyo2 = TweenMax.fromTo(".move_font2", 0.6, {
+            x:0
+        }, {
+            x:'-90%'
+        })
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: ".review_bg",
+            duration: '100%',
+            offset:-150
+        })
+        .setTween(tweenYoyo)
+        .addTo(controller)
+      
+
+        var scene2 = new ScrollMagic.Scene({
+            triggerElement: ".review_bg",
+            duration: '200%',
+            offset:-150
+        })
+        .setTween(tweenYoyo2)
+        .addTo(controller)
+       
+
+
+        var controller = new ScrollMagic.Controller();
+
+        var tweenStagger = TweenMax.staggerFromTo('.review_txt li', 0.4,
+        {
+            x:-10
+        },
+        {
+            x:0
+        },
+        0.3
+        );
+
+        var scene = new ScrollMagic.Scene({
+            triggerElement: ".review_txt",
+            duration: '100%'
+        })
+        .setTween(tweenStagger)
+        .addTo(controller)
+       
+        AOS.init();
+
+
+       
+
+
+    </script>
+    <script src="dove_white.js"></script>
+
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick-1.8.1/slick/slick.min.js"></script>
+</body>
+</html>
